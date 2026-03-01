@@ -1,3 +1,5 @@
+package multithreading;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicIntegerDemo {

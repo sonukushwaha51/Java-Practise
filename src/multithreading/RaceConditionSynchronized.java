@@ -1,3 +1,5 @@
+package multithreading;
+
 public class RaceConditionSynchronized {
 
     static int balance = 1000;
