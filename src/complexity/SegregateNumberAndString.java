@@ -14,7 +14,8 @@ public class SegregateNumberAndString {
         String s = "adsyd132a1f35s";
         List<String> list = List.of(s.split(""));
 //
-//        String numRegex = Pattern.compile("[0-9]").pattern();
+        // Using flags in Pattern compile
+//        String numRegex = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE).pattern();
 
         String num = list.stream().filter(elem -> Pattern.matches("[0-9]", elem)).collect(Collectors.joining());
         String str = list.stream().filter(elem -> !Pattern.matches("[0-9]", elem)).collect(Collectors.joining());
