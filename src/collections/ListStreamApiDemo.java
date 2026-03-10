@@ -1,19 +1,12 @@
 package collections;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class StreamApiDemo {
+public class ListStreamApiDemo {
 
     public static void main(String[] args) {
         List<String> stringList = List.of("apple", "banana", "grapes", "guava", "apple", "grapes", "strawberry");
-
-        Map<String, String> map = Map.of("India", "Asia", "Srilanka", "Asia", "Japan","Asia"
-        ,"UK", "Europe", "Netherlands","Europe", "Canada", "North America", "Mexico", "North America"
-        , "Brazil", "South America", "Chile", "South America");
 
         // Remove duplicates from list
         List<String> uniqueList = stringList.stream().distinct().toList();
@@ -52,7 +45,17 @@ public class StreamApiDemo {
         stringList1.replaceAll(String::toUpperCase);
         System.out.println(stringList1);
 
-        // Map operations
+        // Given list of Numbers in string. find its average
+        List<String> numStringList = Arrays.asList("1","5","7","9","14","67");
+        OptionalDouble average = numStringList.stream().mapToInt(Integer::parseInt).average();
+        if (average.isPresent()) {
+            System.out.println(average.getAsDouble());
+        }
+
+        // Subtract all values
+        long subtraction = numStringList.stream().mapToInt(Integer::parseInt).reduce(0, (a , b) -> a - b);
+        System.out.println(subtraction);
+
 
 
     }
