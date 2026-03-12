@@ -28,6 +28,7 @@ public class Innings {
     public int playInnings(int overs, int target) {
         int totalBalls = overs * 6;
         int totalRuns = 0;
+        boolean isStrikerOnStrike = true;
 
         Player striker = battingTeam.getPlayers().get(strikerIndex);
         Player nonStriker = battingTeam.getPlayers().get(nonStrikerIndex);
@@ -37,11 +38,15 @@ public class Innings {
 
             // rotate strike
             if (run % 2 != 0 && run != 5) {
-                nonStriker.setRunsScored(nonStriker.getRunsScored() + run);
-                nonStriker.setBallsFaced(nonStriker.getBallsFaced() + 1);
-            } else if (run % 2 == 0){
+                isStrikerOnStrike = false;
+            }
+
+            if (isStrikerOnStrike) {
                 striker.setRunsScored(striker.getRunsScored() + run);
                 striker.setBallsFaced(striker.getBallsFaced() + 1);
+            } else {
+                nonStriker.setRunsScored(nonStriker.getRunsScored() + run);
+                nonStriker.setBallsFaced(nonStriker.getBallsFaced() + 1);
             }
 
             if (run == 5) {
@@ -59,6 +64,7 @@ public class Innings {
             totalBalls--;
             if (ballsFaced % 6 == 0) {
                 System.out.println("End of over:");
+                isStrikerOnStrike = !isStrikerOnStrike;
                 System.out.println(battingTeam.getName() + " score is: "+ battingTeam.getTotalRuns() + "/" + battingTeam.getFallenWickets());
                 System.out.println(striker.getName() + " - " + striker.getRunsScored());
                 System.out.println(nonStriker.getName() + " - " + nonStriker.getRunsScored());
