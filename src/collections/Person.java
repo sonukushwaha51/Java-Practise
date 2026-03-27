@@ -29,6 +29,11 @@ public class Person {
     public Person() {
     }
 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -67,5 +72,16 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", age=" + age +
+                ", addresses=" + addresses +
+                '}';
     }
 }

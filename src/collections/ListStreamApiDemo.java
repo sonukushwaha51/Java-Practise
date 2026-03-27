@@ -8,6 +8,8 @@ public class ListStreamApiDemo {
     public static void main(String[] args) {
         List<String> stringList = List.of("apple", "banana", "grapes", "guava", "apple", "grapes", "strawberry");
 
+        Iterator<String> iterator = stringList.iterator();
+
         // Remove duplicates from list
         List<String> uniqueList = stringList.stream().distinct().toList();
         System.out.println(uniqueList);
@@ -56,7 +58,7 @@ public class ListStreamApiDemo {
         long subtraction = numStringList.stream().mapToInt(Integer::parseInt).reduce(0, (a , b) -> a - b);
         System.out.println(subtraction);
 
-
+        Set<String> set = new HashSet<>();
 
     }
 }

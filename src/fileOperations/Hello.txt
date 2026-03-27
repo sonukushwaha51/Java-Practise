@@ -1,0 +1,3 @@
+Hello, this is file operations demo file.
+It will be copied into a new file.
+Thanks!Good Bye

@@ -1,6 +1,7 @@
 package multithreading;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class AtomicIntegerDemo {
 
@@ -41,6 +42,11 @@ public class AtomicIntegerDemo {
             }
         }
         System.out.println("Balance: "+finalBalance);
+
+        // AtomicString
+        AtomicReference<String> stringAtomicReference = new AtomicReference<>("Hello");
+        stringAtomicReference.accumulateAndGet("H" , (str , str1) -> str + str1);
+        System.out.println(stringAtomicReference);
     }
 
     public static void updateBalance() {

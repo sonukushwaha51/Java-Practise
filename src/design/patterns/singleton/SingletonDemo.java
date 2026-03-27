@@ -48,6 +48,10 @@ class SimpleSingleton {
         }
         return simpleSingleton;
     }
+
+    public String sayHello() {
+        return "Hello";
+    }
 }
 
 class EagerSingleton {
