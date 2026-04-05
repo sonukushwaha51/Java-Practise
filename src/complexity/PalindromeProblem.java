@@ -2,6 +2,29 @@ package complexity;
 
 public class PalindromeProblem {
 
+    public static String longestPalindrome(String s) {
+        String c = "";
+        for(int i = 0 ; i < s.length() ; i++){
+            for(int j = i+1 ; j <= s.length() ; j++ ){
+                String ss = s.substring(i , j);
+                int a = 0;
+                int b = ss.length()-1;
+                while(a < b){
+                    if(ss.charAt(a) != ss.charAt(b)){
+                        break;
+                    }else{
+                        a++;
+                        b--;
+                    }
+                }
+                if(a >= b && ss.length() > c.length()){
+                    c = ss;
+                }
+            }
+        }
+        return c;
+    }
+
     public static void main(String[] args) {
         String string = "ahuhduwwudhusa";
 
@@ -67,5 +90,6 @@ public class PalindromeProblem {
             longestPalindrome = str.substring(start, start + maxLength);
         }
         System.out.println("Longest palindrome is: "+ longestPalindrome);
+        System.out.println(longestPalindrome(str));
     }
 }
