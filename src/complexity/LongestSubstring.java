@@ -14,7 +14,6 @@ public class LongestSubstring {
         int left = 0;
         int maxLength = 0;
         int maxStart = 0;
-
         // For returning list of all largest string
         int maxLengthForList = 0;
         List<String> stringList = new ArrayList<>();

@@ -35,7 +35,7 @@ public class MinimumWindowSubstring {
         return finalString;
     }
     public static void main(String[] args) {
-        String s = "ADOBECODEBANC";
+        String s = "AADOBECODEBAANC";
         String target = "ABC";
         System.out.println(findMinimumWIndowSubstring(s, target));
     }

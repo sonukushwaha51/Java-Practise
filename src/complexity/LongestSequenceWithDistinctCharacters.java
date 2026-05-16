@@ -23,7 +23,7 @@ public class LongestSequenceWithDistinctCharacters {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,1,2,3,1,3,1};
+        int[] nums = {1,2,3,2,3,1,3,1};
         int k = 2;
         int longest = longestSequence(nums, k);
 
