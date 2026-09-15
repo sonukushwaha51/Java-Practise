@@ -15,14 +15,14 @@ public class LongestConsecutiveSequence {
 
         // Find the longest sequence
         List<Integer> longestSequenceList = null;
-        for (int i = 0; i < nums.length; i++) {
-            if (!hashSet.contains(nums[i] - 1)) {
+        for (int num : nums) {
+            if (!hashSet.contains(num - 1)) {
                 List<Integer> currentSequence = new ArrayList<>();
                 int count = 0;
                 int start = 0;
 
-                while (hashSet.contains(nums[i] + start)) {
-                    currentSequence.add(nums[i] + start);
+                while (hashSet.contains(num + start)) {
+                    currentSequence.add(num + start);
                     count++;
                     start++;
                 }

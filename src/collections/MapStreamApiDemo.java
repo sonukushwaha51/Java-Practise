@@ -1,9 +1,6 @@
 package collections;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MapStreamApiDemo {
@@ -54,6 +51,16 @@ public class MapStreamApiDemo {
         mergeMap.putIfAbsent("Australia", 5); // ignored
         mergeMap.putIfAbsent("Africa", 3); // accepted
         System.out.println(mergeMap);
+
+        // Anagrams
+        List<String> l = List.of("ate", "tea", "hel", "nat", "tan", "eat", "leh");
+        Map<String, List<String>> stringListMap = l.stream()
+                .collect(Collectors.groupingBy(word -> {
+                    char[] ch = word.toCharArray();
+                    Arrays.sort(ch);
+                    return new String(ch);
+                }, Collectors.toList()));
+        System.out.println(stringListMap);
 
     }
 }
